@@ -1,7 +1,7 @@
 ﻿using Avalonia;
 using System;
 
-namespace srt;
+namespace Srt.Avalonia;
 
 class Program
 {

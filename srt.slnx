@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="Srt.Avalonia/Srt.Avalonia.csproj" />
+  <Project Path="Srt.Core/Srt.Core.csproj" />
+</Solution>
