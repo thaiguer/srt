@@ -6,7 +6,17 @@
         x:Class="Srt.Avalonia.MainWindow"
         Title="Srt.Avalonia">
     <StackPanel>
-	    <Button Click="Button_Click" Content="Hello"/>
-        <TextBlock Name="TextBlock1" Text=""/>
+	    <TextBlock Text="File Path:"
+                 Margin="5, 5, 5, 5"/>
+
+        <TextBox Name="SourceFilePathTextBox"
+                 Margin="5, 5, 5, 5"/>
+
+        <Button Name="SearchFileButton"
+                Content="Search File"
+                Margin="5, 5, 5, 15"/>
+
+        <Button Name="TranslateButton"
+                Content="Translate File"/>
     </StackPanel>
 </Window>
