@@ -5,5 +5,8 @@
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="Srt.Avalonia.MainWindow"
         Title="Srt.Avalonia">
-    Welcome to Avalonia!
+    <StackPanel>
+	    <Button Click="Button_Click" Content="Hello"/>
+        <TextBlock Name="TextBlock1" Text=""/>
+    </StackPanel>
 </Window>
