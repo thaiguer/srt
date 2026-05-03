@@ -2,8 +2,50 @@
 
 namespace Srt.Core.Core;
 
-public class FileReader
+public class FileHandler
 {
+    public void WriteContent(string filePath, List<SrtSnip> snips)
+    {
+        var lines = new List<string>();
+
+        foreach (var snip in snips)
+        {
+            lines.Add(snip.Index);
+            lines.Add(snip.Timestamp);
+
+            foreach (var contentLine in snip.Content)
+            {
+                lines.Add(contentLine);
+            }
+
+            lines.Add(string.Empty);
+        }
+
+        try
+        {
+            // Create new file if it does not exist
+            // Throw IOException if the file is locked/in use
+            using var stream = new FileStream(
+                filePath,
+                FileMode.Create,
+                FileAccess.Write,
+                FileShare.None);
+
+            using var writer = new StreamWriter(stream);
+
+            foreach (var line in lines)
+            {
+                writer.WriteLine(line);
+            }
+        }
+        catch (IOException ex)
+        {
+            throw new IOException(
+                $"The file '{filePath}' is currently in use or could not be written.",
+                ex);
+        }
+    }
+
     public List<SrtSnip> ReadContent(string filePath)
     {
         var result = new List<SrtSnip>();
